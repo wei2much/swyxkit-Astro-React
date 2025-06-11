@@ -134,7 +134,21 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-a {
+/* Hide skip-to-content link (accessibility feature) */
+.skip-nav {
+  position: absolute;
+  left: -25%;
+  top: -2rem;
+  --tw-translate-y: -3rem;
+  padding: 0.75rem 1rem;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+}
+
+/* Only apply yellow link styles to content areas, not nav/footer */
+main a,
+.prose a {
   @apply text-yellow-700 hover:text-yellow-700 hover:underline dark:text-yellow-400 dark:hover:text-yellow-200;
 }
 
