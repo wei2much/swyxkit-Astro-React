@@ -12,7 +12,11 @@ export default function Nav() {
         localStorage.theme === 'dark' ||
         (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
       ) {
+        document.documentElement.classList.add('dark');
         setIsDark(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        setIsDark(false);
       }
     }
   }, []);
