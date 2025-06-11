@@ -25,6 +25,15 @@ const { title = SITE_TITLE, description } = Astro.props;
       title={`RSS Feed for ${SITE_TITLE}`}
       href="/rss.xml"
     />
+    <script is:inline>
+      // Prevent dark mode flash by checking localStorage before render
+      (function() {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body class="bg-gray-50 dark:bg-gray-900">
     <div class="flex flex-col justify-center px-4 dark:bg-gray-900 sm:px-8">
