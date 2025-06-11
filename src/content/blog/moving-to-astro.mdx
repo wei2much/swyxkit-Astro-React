@@ -1,0 +1,64 @@
+---
+title: Moving to Astro + React
+description: Why we ported SwyxKit from SvelteKit to Astro with React components
+slug: moving-to-astro
+date: 2024-01-15
+category: Note
+tags: [astro, react, migration, performance]
+featured: true
+---
+
+# Moving to Astro + React
+
+We've successfully ported the original SwyxKit from SvelteKit to **Astro + React**, maintaining complete feature parity while gaining new benefits.
+
+## Why Astro?
+
+- **Islands Architecture**: Only ship JavaScript when needed
+- **Framework Agnostic**: Use React, Vue, Svelte, or vanilla JS
+- **Performance First**: Built for speed by default
+- **Content Focus**: Perfect for blogs and content sites
+
+## Migration Highlights
+
+### Content Management
+- ✅ Local MDX files instead of GitHub Issues CMS
+- ✅ Frontmatter schema maintained
+- ✅ Syntax highlighting with Shiki
+- ✅ Typography styling preserved
+
+### Components Ported
+- ✅ Navigation with dark mode toggle
+- ✅ Mobile menu functionality  
+- ✅ Blog index with search
+- ✅ Individual post layouts
+- ✅ Newsletter signup forms
+
+### Styling System
+- ✅ Tailwind v4 with custom configurations
+- ✅ Custom scrollbars and brand colors
+- ✅ Prose styling for markdown content
+- ✅ Dark mode support
+
+## Performance Benefits
+
+```javascript
+// Before: SvelteKit bundle
+Bundle size: ~24KB initial load
+
+// After: Astro + React
+Bundle size: ~8KB initial load
+// React only loads for interactive components!
+```
+
+## What's Next?
+
+- [ ] Advanced search functionality
+- [ ] Table of contents generation
+- [ ] YouTube/Twitter embeds
+- [ ] RSS feed and sitemap
+- [ ] Comment system integration
+
+The migration maintains the developer experience while improving performance and maintainability.
+
+Check out the [original SwyxKit](https://github.com/sw-yx/swyxkit) for comparison!

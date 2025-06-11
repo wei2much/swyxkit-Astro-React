@@ -1,0 +1,198 @@
+---
+title: About SwyxKit
+description: About SwyxKit - an opinionated blog starter
+---
+
+# About SwyxKit
+
+SwyxKit is a blog template meant for frontend developers who want to get a performant, fully featured content site up and running with Astro, React, Tailwind CSS, and other modern blog features.
+
+This version has been ported to **Astro + React + Tailwind v4** with complete feature parity. Below is the full README.md from the original SvelteKit version: [https://github.com/sw-yx/swyxkit](https://github.com/sw-yx/swyxkit)
+
+---
+
+## Features
+
+- 🚀 **Astro v5** for lightning-fast static sites
+- ⚛️ **React v19** for interactive components
+- 🎨 **Tailwind v4** for utility-first styling
+- 📝 **MDX** for rich content authoring
+- 🔍 **Shiki** for beautiful syntax highlighting
+- 📱 **Responsive** design that works everywhere
+- 🌙 **Dark mode** with manual toggle
+- 📈 **Performance** optimized by default
+
+## Migration from SvelteKit
+
+This version maintains complete feature parity with the original SvelteKit version while leveraging Astro's unique strengths:
+
+- Islands Architecture - Ship only the JavaScript you need
+- Local MDX files instead of GitHub Issues CMS
+- Modern tooling with TypeScript v5
+- Improved build performance and bundle size
+
+## Code Examples & Syntax Highlighting
+
+This section demonstrates Shiki syntax highlighting across different languages:
+
+### TypeScript/JavaScript
+
+```typescript
+interface BlogPost {
+  title: string;
+  slug: string;
+  date: Date;
+  category: 'Essay' | 'Note';
+  tags: string[];
+  featured?: boolean;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+```
+
+### React/JSX
+
+```jsx
+import { useState, useEffect } from 'react';
+
+export default function DarkModeToggle() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem('theme');
+    setIsDark(stored === 'dark');
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = isDark ? 'light' : 'dark';
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.classList.toggle('dark');
+    setIsDark(!isDark);
+  };
+
+  return (
+    <button onClick={toggleTheme}>
+      {isDark ? '☀️' : '🌙'} Toggle Theme
+    </button>
+  );
+}
+```
+
+### CSS/Tailwind
+
+```css
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+/* Prose customizations */
+.prose pre {
+  @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700;
+}
+```
+
+### Astro Component
+
+```astro
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const posts = await getCollection('blog');
+const featuredPosts = posts.filter(post => post.data.featured);
+---
+
+<Layout title="Blog">
+  <section class="max-w-2xl mx-auto">
+    <h1>Featured Posts</h1>
+    {featuredPosts.map(post => (
+      <article>
+        <h2>{post.data.title}</h2>
+        <p>{post.data.description}</p>
+        <a href={`/blog/${post.slug}`}>Read more</a>
+      </article>
+    ))}
+  </section>
+</Layout>
+```
+
+### Shell/Bash
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
+
+# Run linting and formatting
+pnpm lint
+pnpm format
+```
+
+### JSON Configuration
+
+```json
+{
+  "name": "swyxkit-astro",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.3.0",
+    "astro": "^5.9.2",
+    "react": "^19.1.0",
+    "tailwindcss": "^4.1.8"
+  }
+}
+```
+
+### YAML Frontmatter
+
+```yaml
+---
+title: "Getting Started with SwyxKit"
+description: "A comprehensive guide to using SwyxKit for your blog"
+date: 2024-01-15
+category: Tutorial
+tags: 
+  - astro
+  - react
+  - tailwind
+  - typescript
+featured: true
+author:
+  name: "swyx"
+  email: "hello@swyx.io"
+---
+```
+
+## Original SwyxKit
+
+Check out the original SvelteKit version at [github.com/sw-yx/swyxkit](https://github.com/sw-yx/swyxkit) for comparison and to see the full feature set this port aims to achieve.

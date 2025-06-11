@@ -7,26 +7,11 @@
         "title": {
           "type": "string"
         },
-        "subtitle": {
-          "type": "string"
-        },
         "description": {
           "type": "string"
         },
-        "category": {
-          "type": "string",
-          "enum": [
-            "essay",
-            "note"
-          ],
-          "default": "note"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "default": []
+        "slug": {
+          "type": "string"
         },
         "date": {
           "anyOf": [
@@ -44,16 +29,30 @@
             }
           ]
         },
-        "image": {
-          "type": "string"
+        "category": {
+          "type": "string",
+          "enum": [
+            "Essay",
+            "Note"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
         },
         "featured": {
           "type": "boolean",
           "default": false
         },
-        "draft": {
-          "type": "boolean",
-          "default": false
+        "image": {
+          "type": "string"
+        },
+        "canonical": {
+          "type": "string",
+          "format": "uri"
         },
         "$schema": {
           "type": "string"
@@ -62,7 +61,8 @@
       "required": [
         "title",
         "description",
-        "date"
+        "date",
+        "category"
       ],
       "additionalProperties": false
     }

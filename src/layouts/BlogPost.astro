@@ -1,0 +1,57 @@
+---
+import Layout from './Layout.astro';
+import TableOfContents from '../components/TableOfContents';
+import PrismHighlight from '../components/PrismHighlight';
+import { generateTocFromHeadings } from '../lib/toc';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  category: string;
+  tags: string[];
+  headings?: any[];
+}
+
+const { title, description, date, category, tags, headings = [] } = Astro.props;
+const tocItems = generateTocFromHeadings(headings);
+---
+
+<Layout title={title} description={description}>
+  <article class="container prose mx-auto mb-12 hover:prose-a:text-blue-300 prose-ul:list-disc dark:prose-invert max-w-2xl">
+    <header class="mb-8">
+      <h1 class="mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
+        {title}
+      </h1>
+      <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+        <time datetime={date.toISOString()}>
+          {date.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          })}
+        </time>
+        <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-xs uppercase">
+          {category}
+        </span>
+      </div>
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-2">
+          {tags.map(tag => (
+            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+    <div class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:mx-0 sm:w-full" />
+    <slot />
+  </article>
+  
+  <!-- Table of Contents -->
+  <TableOfContents client:load headings={tocItems} />
+  
+  <!-- PrismJS Syntax Highlighting -->
+  <PrismHighlight client:load />
+</Layout>

@@ -1,0 +1,70 @@
+---
+title: Welcome to swyxkit 2022!
+description: swyxkit has been featured in a number of Community Showcases and discussions! we take feedback and ship quick.
+slug: welcome-to-swyxkit
+date: 2022-01-01
+category: Essay
+tags: [swyxkit, svelte, blog]
+featured: true
+---
+
+import YouTubeEmbed from '../../components/YouTubeEmbed';
+import TwitterEmbed from '../../components/TwitterEmbed';
+
+# Welcome to SwyxKit 2022!
+
+This is a sample blog post to demonstrate the new **SwyxKit** built with Astro + React + Tailwind!
+
+## Features
+
+- 🚀 **Astro v5** for lightning-fast static sites
+- ⚛️ **React v19** for interactive components  
+- 🎨 **Tailwind v4** for utility-first styling
+- 📝 **MDX** for rich content authoring
+- 🔍 **Shiki** for beautiful syntax highlighting
+- 📱 **Responsive** design that works everywhere
+
+## Code Example
+
+Here's some beautiful syntax-highlighted code:
+
+```typescript
+interface BlogPost {
+  title: string;
+  slug: string;
+  date: Date;
+  category: PostCategory;
+  tags: string[];
+  featured?: boolean;
+}
+
+export function createPost(data: BlogPost): BlogPost {
+  return {
+    ...data,
+    date: new Date(data.date),
+  };
+}
+```
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies with `pnpm install`
+3. Start the development server with `pnpm dev`
+4. Begin writing amazing content!
+
+This template is a faithful port of the original SvelteKit version, maintaining feature parity while leveraging modern Astro capabilities.
+
+> **Note**: This is a blockquote to show custom styling from the original design.
+
+Happy blogging! 🎉
+
+## Social Media Examples
+
+Here's an example YouTube video embed:
+
+<YouTubeEmbed videoId="dQw4w9WgXcQ" />
+
+And here's an example Twitter embed:
+
+<TwitterEmbed tweetId="1234567890123456789" />
