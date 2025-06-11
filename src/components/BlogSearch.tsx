@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo } from 'react';
 import { fuzzySearch, changeSearchMode, isSearchExact } from '../lib/fuzzySearch';
+import { calculateReadingTime } from '../lib/readingTime';
 import IndexCard from './IndexCard';
+import MostPopular from './MostPopular';
 
 interface BlogPost {
   slug: string;
@@ -142,22 +144,34 @@ export default function BlogSearch({ posts, categories }: BlogSearchProps) {
         </div>
       )}
 
+      {/* Show Most Popular when no active search/filter */}
+      {!search && !selectedCategories.length && (
+        <MostPopular />
+      )}
+
+      {/* All Posts Title - only show when no active search/filter */}
+      {!search && !selectedCategories.length && (
+        <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">
+          All Posts
+        </h3>
+      )}
+
       {/* Results */}
       {isLoading ? (
         <div className="text-center py-8">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-gray-100 mx-auto"></div>
         </div>
       ) : results.length > 0 ? (
-        <ul className="space-y-8">
+        <ul className="">
           {results.map((post) => (
-            <li key={post.slug} className="text-lg">
+            <li key={post.slug} className="mb-8 text-lg">
               <IndexCard
                 href={`/blog/${post.slug}`}
                 title={post.title}
                 stringData={post.date.toISOString().slice(0, 10)}
                 category={post.category}
                 tags={post.tags}
-                readingTime={undefined} // We don't have reading time calculated
+                readingTime={calculateReadingTime(post.description)}
               >
                 {post.highlightedResults ? (
                   <span

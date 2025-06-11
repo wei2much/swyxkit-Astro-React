@@ -29,16 +29,6 @@ const postsForSearch = sortedPosts.map(post => ({
       In total, I've written {allPosts.length} articles. Use the search below to filter by title or content.
     </p>
 
-    <!-- Most Popular section placeholder -->
-    <div class="w-full mb-8 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-      <h3 class="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-2">
-        🔥 Most Popular
-      </h3>
-      <p class="text-blue-700 dark:text-blue-300 text-sm">
-        Popular posts feature coming soon! For now, check out our featured posts on the homepage.
-      </p>
-    </div>
-
     <!-- Interactive Search and Filter -->
     <BlogSearch client:load posts={postsForSearch} categories={POST_CATEGORIES} />
   </section>
