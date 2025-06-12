@@ -4,16 +4,13 @@
 	"trailingComma": "none",
 	"printWidth": 100,
 	"plugins": [
-		"prettier-plugin-svelte"
-	],
-	"pluginSearchDirs": [
-		"."
+		"prettier-plugin-astro"
 	],
 	"overrides": [
 		{
-			"files": "*.svelte",
+			"files": "*.astro",
 			"options": {
-				"parser": "svelte"
+				"parser": "astro"
 			}
 		}
 	]
