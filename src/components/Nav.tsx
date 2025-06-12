@@ -35,9 +35,6 @@ export default function Nav() {
 
   return (
     <nav className="relative mx-auto flex w-full max-w-2xl items-center justify-between border-gray-200 bg-gray-50 bg-opacity-60 py-8 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 sm:pb-16">
-      <a href="#skip" className="skip-nav">
-        Skip to content
-      </a>
       <MobileMenu />
       <ul className="ml-[-0.60rem] flex">
         <li>
