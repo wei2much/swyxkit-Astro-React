@@ -10,14 +10,17 @@ export function calculateReadingTime(text: string): string {
   // Use sanitize-html to safely remove script tags while preserving other content
   const textWithoutScripts = sanitizeHtml(text, {
     disallowedTagsMode: 'discard',
-    allowedTags: sanitizeHtml.defaults.allowedTags.filter(tag => tag !== 'script'),
-    allowedAttributes: sanitizeHtml.defaults.allowedAttributes,
+    allowedTags: sanitizeHtml.defaults.allowedTags.filter((tag) => tag !== 'script'),
+    allowedAttributes: sanitizeHtml.defaults.allowedAttributes
   });
 
   // Now strip all remaining HTML tags for word counting
-  const cleanText = textWithoutScripts.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  const cleanText = textWithoutScripts
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
 
-  const wordCount = cleanText.split(/\s+/).filter(word => word.length > 0).length;
+  const wordCount = cleanText.split(/\s+/).filter((word) => word.length > 0).length;
 
   const readingTimeMinutes = Math.ceil(wordCount / wordsPerMinute);
 
