@@ -267,8 +267,26 @@ article.prose h4::before {
 	border-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Code block bleed layout - higher specificity without !important */
+article.prose pre,
 .prose pre {
 	border-radius: 0;
+	/* Bleed layout for code blocks - extend beyond prose container */
+	margin-left: -4rem;
+	margin-right: -4rem;
+	padding-left: 4rem;
+	padding-right: 4rem;
+}
+
+/* Responsive breakout: limit the bleed on smaller screens */
+@media (max-width: 768px) {
+	article.prose pre,
+	.prose pre {
+		margin-left: -1rem;
+		margin-right: -1rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
 }
 
 /* Link styling */
