@@ -1,0 +1,11 @@
+---
+import TwitterEmbedWrapper from './TwitterEmbedWrapper';
+
+interface Props {
+  tweetId: string;
+}
+
+const { tweetId } = Astro.props;
+---
+
+<TwitterEmbedWrapper client:load tweetId={tweetId} />

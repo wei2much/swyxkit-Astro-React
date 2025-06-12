@@ -1,0 +1,11 @@
+---
+import YouTubeEmbedWrapper from './YouTubeEmbedWrapper';
+
+interface Props {
+  videoId: string;
+}
+
+const { videoId } = Astro.props;
+---
+
+<YouTubeEmbedWrapper client:load videoId={videoId} />
