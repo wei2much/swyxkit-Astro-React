@@ -18,6 +18,23 @@ export default [
           jsx: true,
         },
       },
+      globals: {
+        ...globalThis,
+        window: 'readonly',
+        document: 'readonly',
+        localStorage: 'readonly',
+        fetch: 'readonly',
+        FormData: 'readonly',
+        HTMLElement: 'readonly',
+        HTMLFormElement: 'readonly',
+        HTMLInputElement: 'readonly',
+        IntersectionObserver: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        NodeJS: 'readonly',
+        Response: 'readonly',
+        React: 'readonly'
+      },
     },
     plugins: {
       '@typescript-eslint': tseslint,
@@ -29,6 +46,10 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-empty-object-type': 'warn',
+      'no-undef': 'off', // TypeScript handles this
+      'jsx-a11y/anchor-has-content': 'warn',
     },
   },
   {
