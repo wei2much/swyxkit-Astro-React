@@ -101,7 +101,6 @@ export default function TwitterEmbed({ tweetId: rawTweetId }: TwitterEmbedProps)
 			script.async = true;
 			script.src = 'https://platform.twitter.com/widgets.js';
 			script.charset = 'utf-8';
-			script.integrity = 'sha256-+1eHOWKaYPuEWx6vMcfqp+j3LCcmJ+hCkl1/j1N+PjU='; // Add integrity check
 			script.crossOrigin = 'anonymous'; // Security: prevent credential leakage
 			document.head.appendChild(script);
 
