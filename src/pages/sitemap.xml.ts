@@ -3,17 +3,17 @@ import { SITE_URL } from '../lib/siteConfig';
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async () => {
-	const allPosts = await getCollection('blog');
-	const pages = ['about', 'blog'];
+  const allPosts = await getCollection('blog');
+  const pages = ['about', 'blog'];
 
-	const body = sitemap(allPosts, pages);
+  const body = sitemap(allPosts, pages);
 
-	return new Response(body, {
-		headers: {
-			'Cache-Control': `public, max-age=${86400}`, // 24 hours
-			'Content-Type': 'application/xml'
-		}
-	});
+  return new Response(body, {
+    headers: {
+      'Cache-Control': `public, max-age=${86400}`, // 24 hours
+      'Content-Type': 'application/xml'
+    }
+  });
 };
 
 const sitemap = (posts: any[], pages: string[]) => `<?xml version="1.0" encoding="UTF-8" ?>
@@ -31,19 +31,19 @@ const sitemap = (posts: any[], pages: string[]) => `<?xml version="1.0" encoding
       <priority>0.7</priority>
     </url>
     ${pages
-			.map(
-				(page) => `
+      .map(
+        (page) => `
     <url>
       <loc>${SITE_URL}/${page}</loc>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
     `
-			)
-			.join('')}
+      )
+      .join('')}
     ${posts
-			.map(
-				(post) => `
+      .map(
+        (post) => `
     <url>
       <loc>${SITE_URL}/blog/${post.slug}</loc>
       <changefreq>weekly</changefreq>
@@ -51,6 +51,6 @@ const sitemap = (posts: any[], pages: string[]) => `<?xml version="1.0" encoding
       <lastmod>${post.data.date.toISOString()}</lastmod>
     </url>
     `
-			)
-			.join('')}
+      )
+      .join('')}
   </urlset>`;

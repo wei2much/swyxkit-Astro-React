@@ -28,19 +28,19 @@ Here's some beautiful syntax-highlighted code:
 
 ```typescript
 interface BlogPost {
-	title: string;
-	slug: string;
-	date: Date;
-	category: PostCategory;
-	tags: string[];
-	featured?: boolean;
+  title: string;
+  slug: string;
+  date: Date;
+  category: PostCategory;
+  tags: string[];
+  featured?: boolean;
 }
 
 export function createPost(data: BlogPost): BlogPost {
-	return {
-		...data,
-		date: new Date(data.date)
-	};
+  return {
+    ...data,
+    date: new Date(data.date)
+  };
 }
 ```
 

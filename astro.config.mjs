@@ -9,28 +9,28 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		react(),
-		mdx({
-			syntaxHighlight: false,
-			remarkPlugins: [remarkShortcodes],
-			rehypePlugins: [
-				rehypeSlug,
-				[
-					rehypeAutolinkHeadings,
-					{
-						behavior: 'wrap' // Same as original SwyxKit
-					}
-				]
-			],
-			extendMarkdownConfig: false
-		})
-	],
-	vite: {
-		plugins: [tailwind()]
-	},
-	markdown: {
-		syntaxHighlight: false,
-		remarkPlugins: [remarkShortcodes]
-	}
+  integrations: [
+    react(),
+    mdx({
+      syntaxHighlight: false,
+      remarkPlugins: [remarkShortcodes],
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'wrap' // Same as original SwyxKit
+          }
+        ]
+      ],
+      extendMarkdownConfig: false
+    })
+  ],
+  vite: {
+    plugins: [tailwind()]
+  },
+  markdown: {
+    syntaxHighlight: false,
+    remarkPlugins: [remarkShortcodes]
+  }
 });

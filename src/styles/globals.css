@@ -5,25 +5,25 @@
 @tailwind utilities;
 
 :root {
-	--font-body:
-		Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-		'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
-	font-family: var(--font-body);
+  --font-body:
+    Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'Fira Mono', monospace;
+  font-family: var(--font-body);
 }
 
 body {
-	min-height: 100vh;
-	margin: 0;
+  min-height: 100vh;
+  margin: 0;
 
-	/* 
+  /* 
 		CUSTOM SCROLLBARS! 
 		- https://css-tricks.com/strut-your-stuff-with-a-custom-scrollbar/
 		*/
-	/* --scrollbar-primary-color: #3730a3; */
-	--scrollbar-primary-color: #facc15;
-	--text-color: #ef4444;
-	overflow: scroll; /* https://maxschmitt.me/posts/react-prevent-layout-shift-body-scrollable/ */
+  /* --scrollbar-primary-color: #3730a3; */
+  --scrollbar-primary-color: #facc15;
+  --text-color: #ef4444;
+  overflow: scroll; /* https://maxschmitt.me/posts/react-prevent-layout-shift-body-scrollable/ */
 }
 /* .dark body {
     --scrollbar-primary-color: #8db2e5;
@@ -32,89 +32,89 @@ body {
     background-color: var(--bg-color);
   } */
 body::-webkit-scrollbar {
-	width: 0.5rem;
+  width: 0.5rem;
 }
 body::-webkit-scrollbar-thumb {
-	background: linear-gradient(var(--scrollbar-primary-color), var(--text-color));
-	border-radius: 4px;
+  background: linear-gradient(var(--scrollbar-primary-color), var(--text-color));
+  border-radius: 4px;
 }
 
 pre {
-	font-size: 16px;
-	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-	padding: 0.5em;
-	overflow-x: auto;
+  font-size: 16px;
+  font-family: var(--font-mono);
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 3px;
+  box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+  padding: 0.5em;
+  overflow-x: auto;
 }
 
 @layer components {
-	body {
-		--brand-accent: #facc15;
-		/* https://ishadeed.com/article/defensive-css */
-		overflow-wrap: break-word;
-		overflow-y: auto;
-		scrollbar-gutter: stable;
-	}
-	/* .dark > body {
+  body {
+    --brand-accent: #facc15;
+    /* https://ishadeed.com/article/defensive-css */
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+  /* .dark > body {
     --brand-accent: #a16207;
   } */
-	:root {
-		accent-color: var(--brand-accent);
-	}
-	:focus-visible {
-		outline-color: var(--brand-accent);
-	}
-	::selection {
-		background-color: var(--brand-accent);
-	}
-	.dark ::selection {
-		color: #1d1d1d;
-	}
-	::marker {
-		color: var(--brand-accent);
-	}
+  :root {
+    accent-color: var(--brand-accent);
+  }
+  :focus-visible {
+    outline-color: var(--brand-accent);
+  }
+  ::selection {
+    background-color: var(--brand-accent);
+  }
+  .dark ::selection {
+    color: #1d1d1d;
+  }
+  ::marker {
+    color: var(--brand-accent);
+  }
 
-	:is(
-		::-webkit-calendar-picker-indicator,
-		::-webkit-clear-button,
-		::-webkit-inner-spin-button,
-		::-webkit-outer-spin-button
-	) {
-		color: var(--brand-accent);
-	}
+  :is(
+    ::-webkit-calendar-picker-indicator,
+    ::-webkit-clear-button,
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button
+  ) {
+    color: var(--brand-accent);
+  }
 
-	/* https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/ */
-	details {
-		border: 2px solid var(--brand-accent);
-		padding: 0.5rem 1rem;
-	}
-	details > summary {
-		cursor: pointer;
-	}
+  /* https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/ */
+  details {
+    border: 2px solid var(--brand-accent);
+    padding: 0.5rem 1rem;
+  }
+  details > summary {
+    cursor: pointer;
+  }
 
-	details > summary > *:first-child {
-		display: inline;
-	}
+  details > summary > *:first-child {
+    display: inline;
+  }
 
-	img {
-		/* https://ishadeed.com/article/defensive-css */
-		max-width: 100%;
-		object-fit: cover;
-		background-color: grey;
-		max-height: 50rem; /* so that iphone photos dont take over the whole screen. better than vh bc its responsive to text size */
-	}
+  img {
+    /* https://ishadeed.com/article/defensive-css */
+    max-width: 100%;
+    object-fit: cover;
+    background-color: grey;
+    max-height: 50rem; /* so that iphone photos dont take over the whole screen. better than vh bc its responsive to text size */
+  }
 }
 /* Only apply yellow link styles to content areas, not nav/footer */
 main a:not(nav a):not(footer a),
 .prose a {
-	@apply text-yellow-700 hover:text-yellow-700 hover:underline dark:text-yellow-400 dark:hover:text-yellow-200;
+  @apply text-yellow-700 hover:text-yellow-700 hover:underline dark:text-yellow-400 dark:hover:text-yellow-200;
 }
 
 /* for the super long github links i drop */
 article.prose a {
-	word-break: break-word;
+  word-break: break-word;
 }
 
 /* Heading styling to match original */
@@ -124,37 +124,37 @@ article.prose a {
 .prose h4,
 .prose h5,
 .prose h6 {
-	@apply text-orange-700 dark:text-orange-400;
-	font-weight: 500; /* medium - matches original */
+  @apply text-orange-700 dark:text-orange-400;
+  font-weight: 500; /* medium - matches original */
 }
 
 /* Heading font sizes to match original */
 .prose h1 {
-	font-size: 2.25em; /* 36px */
-	line-height: 1.1111;
-	margin-top: 0;
-	margin-bottom: 0.8889em;
+  font-size: 2.25em; /* 36px */
+  line-height: 1.1111;
+  margin-top: 0;
+  margin-bottom: 0.8889em;
 }
 
 .prose h2 {
-	font-size: 1.5em; /* 24px */
-	line-height: 1.3333;
-	margin-top: 2em;
-	margin-bottom: 1em;
+  font-size: 1.5em; /* 24px */
+  line-height: 1.3333;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 .prose h3 {
-	font-size: 1.25em; /* 20px */
-	line-height: 1.6;
-	margin-top: 1.6em;
-	margin-bottom: 0.6em;
+  font-size: 1.25em; /* 20px */
+  line-height: 1.6;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
 }
 
 .prose h4 {
-	font-size: 1.125em; /* 18px */
-	line-height: 1.5556;
-	margin-top: 1.5em;
-	margin-bottom: 0.5em;
+  font-size: 1.125em; /* 18px */
+  line-height: 1.5556;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 article.prose h1 a,
 h2 a,
@@ -162,192 +162,192 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
-	/* margin-left: 1rem; */
-	text-decoration: none !important;
-	@apply text-orange-700 dark:text-orange-400;
+  /* margin-left: 1rem; */
+  text-decoration: none !important;
+  @apply text-orange-700 dark:text-orange-400;
 }
 article.prose h2::before {
-	content: '## ';
+  content: '## ';
 }
 article.prose h3::before {
-	content: '### ';
+  content: '### ';
 }
 article.prose h4::before {
-	content: '#### ';
+  content: '#### ';
 }
 
 /* https://seek-oss.github.io/capsize/ */
 .capsize::before {
-	content: '';
-	margin-bottom: -0.098em;
-	display: table;
+  content: '';
+  margin-bottom: -0.098em;
+  display: table;
 }
 
 .capsize::after {
-	content: '';
-	margin-top: -0.219em;
-	display: table;
+  content: '';
+  margin-top: -0.219em;
+  display: table;
 }
 
 /* Typography Configuration from Tailwind Config (v4 CSS-based approach) */
 .prose {
-	--tw-prose-bullets: black;
-	--tw-prose-body: rgb(55 65 81); /* gray-700 - better body text color */
-	color: rgb(55 65 81); /* Ensure body text is gray-700 */
-	font-weight: 400; /* Normal weight for body text */
+  --tw-prose-bullets: black;
+  --tw-prose-body: rgb(55 65 81); /* gray-700 - better body text color */
+  color: rgb(55 65 81); /* Ensure body text is gray-700 */
+  font-weight: 400; /* Normal weight for body text */
 }
 
 /* Dark mode prose colors */
 .dark .prose {
-	--tw-prose-body: rgb(209 213 219); /* gray-300 for dark mode */
-	color: rgb(209 213 219); /* gray-300 for dark mode */
+  --tw-prose-body: rgb(209 213 219); /* gray-300 for dark mode */
+  color: rgb(209 213 219); /* gray-300 for dark mode */
 }
 
 .dark .prose p {
-	color: rgb(209 213 219) !important; /* gray-300 for dark mode */
+  color: rgb(209 213 219) !important; /* gray-300 for dark mode */
 }
 
 /* Fix marker/bullet point styling to match original */
 .prose ::marker {
-	color: var(--brand-accent); /* Yellow accent color like original */
+  color: var(--brand-accent); /* Yellow accent color like original */
 }
 
 .prose ul > li::marker {
-	color: black; /* Black bullets in light mode */
+  color: black; /* Black bullets in light mode */
 }
 
 .prose ol > li::marker {
-	color: var(--tw-prose-body); /* Match body text for ordered lists */
+  color: var(--tw-prose-body); /* Match body text for ordered lists */
 }
 
 /* Ensure bullets are visible */
 .prose ul {
-	list-style-type: disc;
-	padding-left: 1.625rem; /* Ensure proper indentation */
+  list-style-type: disc;
+  padding-left: 1.625rem; /* Ensure proper indentation */
 }
 
 .prose ul > li {
-	position: relative;
-	padding-left: 0;
+  position: relative;
+  padding-left: 0;
 }
 
 /* Dark mode bullet points */
 .dark .prose ul > li::marker {
-	color: rgb(209 213 219); /* Gray-300 for dark mode */
+  color: rgb(209 213 219); /* Gray-300 for dark mode */
 }
 
 /* Blockquote styling */
 .prose blockquote {
-	border-left: 3px solid red;
-	font-size: inherit;
-	font-style: inherit;
-	font-weight: 500; /* medium */
-	padding-left: 1rem; /* Add padding for proper spacing */
-	margin-left: 0;
+  border-left: 3px solid red;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: 500; /* medium */
+  padding-left: 1rem; /* Add padding for proper spacing */
+  margin-left: 0;
 }
 
 .prose blockquote p:first-of-type::before {
-	content: '';
+  content: '';
 }
 
 .prose blockquote p:last-of-type::after {
-	content: '';
+  content: '';
 }
 
 /* Code styling */
 .prose code::before,
 .prose code::after {
-	content: none;
+  content: none;
 }
 
 .prose code {
-	border-radius: 0.25rem;
-	padding: 0.15rem 0.3rem;
-	border-width: 2px;
-	border-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  padding: 0.15rem 0.3rem;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Code block bleed layout - higher specificity without !important */
 article.prose pre,
 .prose pre {
-	border-radius: 0;
-	/* Bleed layout for code blocks - extend beyond prose container */
-	margin-left: -4rem;
-	margin-right: -4rem;
-	padding-left: 4rem;
-	padding-right: 4rem;
+  border-radius: 0;
+  /* Bleed layout for code blocks - extend beyond prose container */
+  margin-left: -4rem;
+  margin-right: -4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 /* Responsive breakout: limit the bleed on smaller screens */
 @media (max-width: 768px) {
-	article.prose pre,
-	.prose pre {
-		margin-left: -1rem;
-		margin-right: -1rem;
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
+  article.prose pre,
+  .prose pre {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 /* Link styling */
 .prose a {
-	color: #2071ad;
-	text-decoration: none;
+  color: #2071ad;
+  text-decoration: none;
 }
 
 .prose a:hover {
-	color: #31cdce !important;
-	text-decoration: underline !important;
+  color: #31cdce !important;
+  text-decoration: underline !important;
 }
 
 .prose a code {
-	color: unset;
+  color: unset;
 }
 
 /* Table styling */
 .prose table {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 /* List styling - match original exactly */
 .prose li,
 .prose ul,
 .prose ol {
-	margin: 0;
+  margin: 0;
 }
 
 .prose li > img {
-	margin: 0;
-	display: inline;
+  margin: 0;
+  display: inline;
 }
 
 /* Remove the duplicate marker styling since we handle it above */
 .prose ul > li > p {
-	margin-top: 0;
-	margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Ensure proper line-height and spacing for prose content */
 .prose {
-	line-height: 1.75; /* Tailwind Typography default */
+  line-height: 1.75; /* Tailwind Typography default */
 }
 
 /* Ensure list items have proper line-height */
 .prose li {
-	line-height: 1.75;
+  line-height: 1.75;
 }
 
 /* Ensure proper paragraph spacing and color */
 .prose p {
-	margin-top: 1.25em;
-	margin-bottom: 1.25em;
-	color: rgb(55 65 81); /* gray-700 - better body text color */
-	font-weight: 400; /* Normal weight */
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  color: rgb(55 65 81); /* gray-700 - better body text color */
+  font-weight: 400; /* Normal weight */
 }
 
 /* Dark mode paragraph color */
 .dark .prose p {
-	color: rgb(209 213 219) !important; /* gray-300 for dark mode */
+  color: rgb(209 213 219) !important; /* gray-300 for dark mode */
 }
 
 /* Ensure proper heading spacing */
@@ -357,28 +357,28 @@ article.prose pre,
 .prose h4,
 .prose h5,
 .prose h6 {
-	margin-top: 2em;
-	margin-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 /* First child should not have top margin */
 .prose > :first-child {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 /* Last child should not have bottom margin */
 .prose > :last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* Horizontal rule styling to match original */
 .prose hr {
-	border-color: rgb(229 231 235); /* gray-200 */
-	border-top-width: 1px;
-	margin-top: 3em;
-	margin-bottom: 3em;
+  border-color: rgb(229 231 235); /* gray-200 */
+  border-top-width: 1px;
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 .dark .prose hr {
-	border-color: rgb(55 65 81); /* gray-700 for dark mode */
+  border-color: rgb(55 65 81); /* gray-700 for dark mode */
 }

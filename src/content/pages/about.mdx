@@ -39,20 +39,20 @@ This section demonstrates Shiki syntax highlighting across different languages:
 
 ```typescript
 interface BlogPost {
-	title: string;
-	slug: string;
-	date: Date;
-	category: 'Essay' | 'Note';
-	tags: string[];
-	featured?: boolean;
+  title: string;
+  slug: string;
+  date: Date;
+  category: 'Essay' | 'Note';
+  tags: string[];
+  featured?: boolean;
 }
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: { post }
-	}));
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
 }
 ```
 
@@ -62,21 +62,21 @@ export async function getStaticPaths() {
 import { useState, useEffect } from 'react';
 
 export default function DarkModeToggle() {
-	const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
-	useEffect(() => {
-		const stored = localStorage.getItem('theme');
-		setIsDark(stored === 'dark');
-	}, []);
+  useEffect(() => {
+    const stored = localStorage.getItem('theme');
+    setIsDark(stored === 'dark');
+  }, []);
 
-	const toggleTheme = () => {
-		const newTheme = isDark ? 'light' : 'dark';
-		localStorage.setItem('theme', newTheme);
-		document.documentElement.classList.toggle('dark');
-		setIsDark(!isDark);
-	};
+  const toggleTheme = () => {
+    const newTheme = isDark ? 'light' : 'dark';
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.classList.toggle('dark');
+    setIsDark(!isDark);
+  };
 
-	return <button onClick={toggleTheme}>{isDark ? '☀️' : '🌙'} Toggle Theme</button>;
+  return <button onClick={toggleTheme}>{isDark ? '☀️' : '🌙'} Toggle Theme</button>;
 }
 ```
 
@@ -85,21 +85,21 @@ export default function DarkModeToggle() {
 ```css
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-	@apply bg-gray-100 dark:bg-gray-800;
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
 }
 
 /* Prose customizations */
 .prose pre {
-	@apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700;
+  @apply bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700;
 }
 ```
 
@@ -115,18 +115,18 @@ const featuredPosts = posts.filter((post) => post.data.featured);
 ---
 
 <Layout title="Blog">
-	<section class="max-w-2xl mx-auto">
-		<h1>Featured Posts</h1>
-		{
-			featuredPosts.map((post) => (
-				<article>
-					<h2>{post.data.title}</h2>
-					<p>{post.data.description}</p>
-					<a href={`/blog/${post.slug}`}>Read more</a>
-				</article>
-			))
-		}
-	</section>
+  <section class="max-w-2xl mx-auto">
+    <h1>Featured Posts</h1>
+    {
+      featuredPosts.map((post) => (
+        <article>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+          <a href={`/blog/${post.slug}`}>Read more</a>
+        </article>
+      ))
+    }
+  </section>
 </Layout>
 ```
 
@@ -154,20 +154,20 @@ pnpm format
 
 ```json
 {
-	"name": "swyxkit-astro",
-	"version": "1.0.0",
-	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview"
-	},
-	"dependencies": {
-		"@astrojs/mdx": "^4.3.0",
-		"@astrojs/react": "^4.3.0",
-		"astro": "^5.9.2",
-		"react": "^19.1.0",
-		"tailwindcss": "^4.1.8"
-	}
+  "name": "swyxkit-astro",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/react": "^4.3.0",
+    "astro": "^5.9.2",
+    "react": "^19.1.0",
+    "tailwindcss": "^4.1.8"
+  }
 }
 ```
 
@@ -208,14 +208,15 @@ A lightly opinionated starter for [SvelteKit](https://kit.svelte.dev/) blogs:
   - [Twitter/YouTube Embeds](https://swyxkit.netlify.app/supporting-youtube-and-twitter-embeds) - made [fast](https://swyxkit.netlify.app/faster-youtube-embeds)
   - [Admonitions and Bleed layouts](https://swyxkit.netlify.app/layout-breakouts-in-swyxkit)
 - Lots of minor DX and UX opinions (see below)
-- <details>
-  <summary>
-  <bold>Good Perf Baseline</bold>: 100's across the board on Lighthouse scores
-  </summary>
 
-  ![image](https://user-images.githubusercontent.com/6764957/207693633-8e85630b-5717-42d9-b5ff-8b69d2cbda30.png)
+<details>
+<summary>
+<bold>Good Perf Baseline</bold>: 100's across the board on Lighthouse scores
+</summary>
 
-  </details>
+![image](https://user-images.githubusercontent.com/6764957/207693633-8e85630b-5717-42d9-b5ff-8b69d2cbda30.png)
+
+</details>
 
 Feel free to rip out these opinions as you see fit of course. If you want a SaaS like starter kit maybe check out [okputer](https://github.com/okupter/kitforstartups)'s
 
@@ -354,7 +355,7 @@ export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
 export const SITE_TITLE = 'SwyxKit';
 export const SITE_DESCRIPTION = "swyx's default SvelteKit + Tailwind starter";
 export const DEFAULT_OG_IMAGE =
-	'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
+  'https://user-images.githubusercontent.com/6764957/147861359-3ad9438f-41d1-47c8-aa05-95c7d18497f0.png';
 export const MY_TWITTER_HANDLE = 'swyx';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 export const POST_CATEGORIES = ['Blog']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
