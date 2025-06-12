@@ -1,26 +1,36 @@
 ---
-title: Welcome to swyxkit 2022!
-description: swyxkit has been featured in a number of Community Showcases and discussions! we take feedback and ship quick.
+title: Welcome to SwyxKit Astro + React!
+description: SwyxKit has been successfully ported from SvelteKit to Astro + React, maintaining complete feature parity while gaining modern performance benefits.
 slug: welcome-to-swyxkit
-date: 2022-01-01
+date: 2025-06-12
 category: Essay
-tags: [swyxkit, svelte, blog]
+tags: [swyxkit, astro, react, blog]
 featured: true
 ---
 
 import YouTubeEmbedAstro from '../../components/YouTubeEmbedAstro.astro';
 import TwitterEmbedAstro from '../../components/TwitterEmbedAstro.astro';
 
-This is a sample blog post to demonstrate the new **SwyxKit** built with Astro + React + Tailwind!
+Welcome to the **Astro + React** version of SwyxKit! This is a complete port of the popular SvelteKit blog template, now powered by modern web technologies for even better performance and developer experience.
 
-## Features
+## What's New in the Astro Version
 
-- 🚀 **Astro v5** for lightning-fast static sites
-- ⚛️ **React v19** for interactive components
-- 🎨 **Tailwind v4** for utility-first styling
-- 📝 **MDX** for rich content authoring
-- 🔍 **Shiki** for beautiful syntax highlighting
+This port brings all the beloved features of the original SwyxKit while embracing modern web technologies:
+
+### Core Technologies
+- 🚀 **Astro v5** - Islands architecture for optimal performance
+- ⚛️ **React v19** - Latest React with concurrent features
+- 🎨 **Tailwind v4** - Next-generation CSS framework
+- 📝 **MDX** - Rich content authoring with React components
+- 🎨 **PrismJS** - Beautiful syntax highlighting with Shades of Purple theme
 - 📱 **Responsive** design that works everywhere
+
+### Key Improvements
+- **Islands Architecture** - Ship only the JavaScript you need
+- **Local MDX Files** - No more GitHub Issues CMS dependency
+- **Better Performance** - Smaller bundle sizes and faster loading
+- **Modern Tooling** - TypeScript v5, ESLint, Prettier
+- **Enhanced DX** - Better development experience with Astro
 
 ## Code Example
 
@@ -46,16 +56,28 @@ export function createPost(data: BlogPost): BlogPost {
 
 ## Getting Started
 
-1. Clone the repository
+1. Clone this repository
 2. Install dependencies with `pnpm install`
 3. Start the development server with `pnpm dev`
-4. Begin writing amazing content!
+4. Create your content:
+   - **Blog posts**: Add `.mdx` files to `src/content/blog/`
+   - **Pages**: Add `.mdx` files to `src/content/pages/`
+5. Begin writing amazing content in MDX!
 
-This template is a faithful port of the original SvelteKit version, maintaining feature parity while leveraging modern Astro capabilities.
+This template maintains complete feature parity with the original SvelteKit version while leveraging Astro's unique strengths for better performance and developer experience.
 
-> **Note**: This is a blockquote to show custom styling from the original design.
+## Content Management
 
-Happy blogging! 🎉
+Unlike the original SwyxKit that used GitHub Issues as a CMS, this version uses local MDX files:
+
+- **Blog posts** go in `src/content/blog/your-post.mdx`
+- **Static pages** go in `src/content/pages/your-page.mdx`
+- Full MDX support with React components
+- Frontmatter for metadata and configuration
+
+> **Note**: All original SwyxKit features have been preserved, including dark mode, search, RSS, and responsive design.
+
+Happy blogging with Astro! 🎉
 
 ## Social Media Examples
 

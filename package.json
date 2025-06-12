@@ -1,7 +1,8 @@
 {
-  "name": "violet-venus",
+  "name": "swyxkit-astro-react",
+  "description": "SwyxKit blog starter ported to Astro + React with local MDX content management",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

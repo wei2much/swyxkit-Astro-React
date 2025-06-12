@@ -8,7 +8,7 @@ export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 export const POST_CATEGORIES = ['Essay', 'Note'] as const;
 
 // auto generated variables
-export const REPO_URL = 'https://github.com/sw-yx/swyxkit';
-export const REPO_OWNER = 'sw-yx';
+export const REPO_URL = 'https://github.com/wei2much/swyxkit-Astro-React';
+export const REPO_OWNER = 'wei2much';
 
 export type PostCategory = (typeof POST_CATEGORIES)[number];
