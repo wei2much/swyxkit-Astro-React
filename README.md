@@ -25,7 +25,7 @@ This is a **complete port** of the popular SwyxKit blog template from SvelteKit 
 // Before: SvelteKit
 // Full framework JavaScript on initial page load
 
-// After: Astro + React  
+// After: Astro + React
 Initial HTML: ~4.8KB gzipped (includes critical CSS/JS)
 React bundle: ~56.6KB gzipped (only loads for interactive components)
 Build time: <1 second (926ms for complete build)
@@ -35,12 +35,14 @@ Hydration: Selective, only when needed (Islands Architecture)
 ### Content Management Revolution
 
 **Before (GitHub Issues CMS)**:
+
 - Content stored as GitHub Issues
 - Required GitHub API tokens
 - Network dependency for content
 - Complex comment system integration
 
 **After (Local MDX Files)**:
+
 - Content stored in `src/content/blog/` and `src/content/pages/`
 - Full MDX support with React components
 - Type-safe content with Astro Content Collections
@@ -49,19 +51,22 @@ Hydration: Selective, only when needed (Islands Architecture)
 ### Ported Components & Features
 
 #### ✅ Navigation System
+
 - Header with responsive design
 - Dark mode toggle with localStorage persistence
 - Mobile hamburger menu with smooth animations
 - Search functionality integrated
 
 #### ✅ Blog System
-- Blog index with category/tag filtering  
+
+- Blog index with category/tag filtering
 - Fuzzy search through all content
 - Post layouts with full typography support
 - Table of contents auto-generation
 - RSS feed and sitemap generation
 
 #### ✅ Content Features
+
 - MDX support with React component embedding
 - YouTube and Twitter embeds as Astro islands
 - Syntax highlighting with PrismJS
@@ -69,6 +74,7 @@ Hydration: Selective, only when needed (Islands Architecture)
 - Newsletter signup integration
 
 #### ✅ Styling & UX
+
 - Complete Tailwind v4 integration
 - Custom scrollbar styling
 - Prose typography optimizations
@@ -78,7 +84,7 @@ Hydration: Selective, only when needed (Islands Architecture)
 ### Developer Experience Enhancements
 
 - **Faster Builds**: Astro's optimized build pipeline
-- **Better Hot Reload**: Instant updates during development  
+- **Better Hot Reload**: Instant updates during development
 - **Type Safety**: Enhanced TypeScript integration
 - **Modern Tooling**: ESLint, Prettier, and Astro DevTools
 - **Simplified Deploy**: Static generation with multiple hosting options
@@ -90,11 +96,13 @@ Unlike the original SwyxKit that used GitHub Issues as a CMS, this version uses 
 ### Creating Content
 
 **Blog Posts**: Add `.mdx` files to `src/content/blog/`
+
 ```bash
 src/content/blog/my-new-post.mdx
 ```
 
 **Static Pages**: Add `.mdx` files to `src/content/pages/`
+
 ```bash
 src/content/pages/my-new-page.mdx
 ```
@@ -103,18 +111,19 @@ src/content/pages/my-new-page.mdx
 
 ```yaml
 ---
-title: "Your Post Title"
-description: "A compelling description for SEO"
+title: 'Your Post Title'
+description: 'A compelling description for SEO'
 date: 2025-06-12
-category: Essay  # or "Note"
+category: Essay # or "Note"
 tags: [astro, react, typescript]
-featured: true  # Shows on homepage
+featured: true # Shows on homepage
 ---
 ```
 
 ### MDX Features
 
 **React Components in Content**:
+
 ```mdx
 import YouTubeEmbedAstro from '../../components/YouTubeEmbedAstro.astro';
 
@@ -122,6 +131,7 @@ import YouTubeEmbedAstro from '../../components/YouTubeEmbedAstro.astro';
 ```
 
 **Code Syntax Highlighting**:
+
 ```typescript
 interface BlogPost {
   title: string;
@@ -160,29 +170,30 @@ pnpm format
 
 ## Migration Benefits Summary
 
-| Aspect | SvelteKit Original | Astro + React Port |
-|--------|-------------------|-------------------|
-| **Initial Load** | Full framework JS | ~4.8KB HTML (gzipped) |
-| **JavaScript** | Full framework | Islands only |
-| **Content** | GitHub Issues API | Local MDX files |
-| **Build Time** | Standard | Faster with Astro |
-| **Type Safety** | JSDoc | Full TypeScript v5 |
-| **Syntax Highlighting** | MDSveX/Prism | PrismJS optimized |
-| **Framework** | Svelte-only | React v19 |
-| **CSS** | Tailwind v3 | Tailwind v4 |
+| Aspect                  | SvelteKit Original | Astro + React Port    |
+| ----------------------- | ------------------ | --------------------- |
+| **Initial Load**        | Full framework JS  | ~4.8KB HTML (gzipped) |
+| **JavaScript**          | Full framework     | Islands only          |
+| **Content**             | GitHub Issues API  | Local MDX files       |
+| **Build Time**          | Standard           | Faster with Astro     |
+| **Type Safety**         | JSDoc              | Full TypeScript v5    |
+| **Syntax Highlighting** | MDSveX/Prism       | PrismJS optimized     |
+| **Framework**           | Svelte-only        | React v19             |
+| **CSS**                 | Tailwind v3        | Tailwind v4           |
 
 ---
 
 ## Original SwyxKit Template Information
 
-*The following content is adapted from the original SwyxKit template. This Astro version maintains complete feature parity while using modern technologies.*
+_The following content is adapted from the original SwyxKit template. This Astro version maintains complete feature parity while using modern technologies._
 
 SwyxKit is a lightly opinionated starter for modern blogs, originally built for SvelteKit and now available in this enhanced Astro + React version.
 
 ### Key Features Maintained
 
 **All Basic Developer Website Features**:
-- Light + Dark mode with manual toggle  
+
+- Light + Dark mode with manual toggle
 - Blog with index, categories, and tags
 - Content authoring in MDX format
 - Syntax highlighting for code blocks
@@ -190,12 +201,14 @@ SwyxKit is a lightly opinionated starter for modern blogs, originally built for 
 - Mobile-responsive design
 
 **Performance & Security**:
+
 - Lighthouse scores: 100 across the board
 - Optimized bundle sizes with Islands Architecture
 - Security headers and best practices
 - Fast builds and deployments
 
 **Design & UX Details**:
+
 - Blog index with search and filtering
 - Individual post layouts with typography
 - Newsletter signup integration
@@ -208,6 +221,7 @@ SwyxKit is a lightly opinionated starter for modern blogs, originally built for 
 This version demonstrates beautiful syntax highlighting across multiple languages:
 
 #### TypeScript/JavaScript
+
 ```typescript
 interface BlogPost {
   title: string;
@@ -228,6 +242,7 @@ export async function getStaticPaths() {
 ```
 
 #### React/JSX
+
 ```jsx
 import { useState, useEffect } from 'react';
 
@@ -251,6 +266,7 @@ export default function DarkModeToggle() {
 ```
 
 #### Astro Component
+
 ```astro
 ---
 import { getCollection } from 'astro:content';
@@ -277,6 +293,7 @@ const featuredPosts = posts.filter((post) => post.data.featured);
 ```
 
 #### Shell Commands
+
 ```bash
 # Install dependencies
 pnpm install
