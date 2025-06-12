@@ -38,19 +38,19 @@ export default function Nav() {
       <MobileMenu />
       <ul className="ml-[-0.60rem] flex">
         <li>
-          <NavLink href="/">Home</NavLink>
+          <NavLink href="./">Home</NavLink>
         </li>
         <li>
-          <NavLink href="/blog">Blog</NavLink>
+          <NavLink href="./blog/">Blog</NavLink>
         </li>
         <li>
-          <NavLink href="/about">About</NavLink>
+          <NavLink href="./about/">About</NavLink>
         </li>
         <li>
           <a
             className="hidden rounded-lg p-1 text-gray-800 transition-all hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800 sm:px-3 sm:py-2 md:inline-block"
             rel="external"
-            href="/rss.xml"
+            href="./rss.xml"
           >
             <span className="capsize">RSS</span>
           </a>

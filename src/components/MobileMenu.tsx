@@ -125,7 +125,7 @@ export default function MobileMenu() {
             }`}
             style={menuItemStyle(150)}
           >
-            <a className="flex w-auto pb-4" onClick={handleLinkClick} href="/">
+            <a className="flex w-auto pb-4" onClick={handleLinkClick} href="./">
               Home
             </a>
           </li>
@@ -135,7 +135,7 @@ export default function MobileMenu() {
             }`}
             style={menuItemStyle(250)}
           >
-            <a className="flex w-auto pb-4" onClick={handleLinkClick} href="/blog">
+            <a className="flex w-auto pb-4" onClick={handleLinkClick} href="./blog/">
               Blog
             </a>
           </li>
@@ -145,7 +145,7 @@ export default function MobileMenu() {
             }`}
             style={menuItemStyle(350)}
           >
-            <a className="flex w-auto pb-4" onClick={handleLinkClick} href="/about">
+            <a className="flex w-auto pb-4" onClick={handleLinkClick} href="./about/">
               About
             </a>
           </li>

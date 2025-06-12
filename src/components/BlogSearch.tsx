@@ -162,7 +162,7 @@ export default function BlogSearch({ posts, categories }: BlogSearchProps) {
           {results.map((post) => (
             <li key={post.slug} className="mb-8 text-lg">
               <IndexCard
-                href={`/blog/${post.slug}`}
+                href={`./blog/${post.slug}/`}
                 title={post.title}
                 stringData={post.date.toISOString().slice(0, 10)}
                 category={post.category}

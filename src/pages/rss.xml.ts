@@ -1,13 +1,22 @@
 import RSS from 'rss';
 import { getCollection } from 'astro:content';
-import { SITE_TITLE, SITE_URL } from '../lib/siteConfig';
+import { SITE_TITLE } from '../lib/siteConfig';
 import type { APIRoute } from 'astro';
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async (context) => {
+  // Combine site and base URL from Astro config
+  const site = context.site?.toString() || 'https://wei2much.github.io';
+  const base = import.meta.env.BASE_URL || '';
+  
+  // Handle empty base path (when base is '' or '/')
+  const siteUrl = (!base || base === '/') 
+    ? site.replace(/\/$/, '') 
+    : `${site.replace(/\/$/, '')}${base.replace(/\/$/, '')}`;
+  
   const feed = new RSS({
     title: SITE_TITLE + ' RSS Feed',
-    site_url: SITE_URL,
-    feed_url: SITE_URL + '/rss.xml',
+    site_url: siteUrl,
+    feed_url: `${siteUrl}/rss.xml`,
     description: `Latest posts from ${SITE_TITLE}`,
     language: 'en-US',
     managingEditor: 'noreply@example.com', // Change this to your email
@@ -20,7 +29,7 @@ export const GET: APIRoute = async () => {
   sortedPosts.forEach((post) => {
     feed.item({
       title: post.data.title,
-      url: SITE_URL + `/blog/${post.slug}`,
+      url: `${siteUrl}/blog/${post.slug}`,
       date: post.data.date,
       description: post.data.description,
       categories: [post.data.category, ...post.data.tags]
