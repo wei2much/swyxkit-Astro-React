@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+    target-branch: 'main'
+    versioning-strategy: 'increase'
+    commit-message:
+      prefix: 'deps'
+      include: 'scope'
+    reviewers:
+      - 'wei2much'
+    assignees:
+      - 'wei2much'
+    open-pull-requests-limit: 10
+    allow:
+      - dependency-type: 'direct'
+      - dependency-type: 'indirect'
