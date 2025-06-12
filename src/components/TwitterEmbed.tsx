@@ -28,11 +28,11 @@ export default function TwitterEmbed({ tweetId: rawTweetId }: TwitterEmbedProps)
 		// Handle x.com URLs (new format)
 		const xMatch = input.match(/x\.com\/[^/]+\/status\/(\d+)/);
 		if (xMatch) return xMatch[1];
-		
+
 		// Handle twitter.com URLs (legacy format)
 		const twitterMatch = input.match(/twitter\.com\/[^/]+\/status\/(\d+)/);
 		if (twitterMatch) return twitterMatch[1];
-		
+
 		// If it's just a tweet ID (numeric string), return as is
 		return input;
 	};
@@ -74,17 +74,15 @@ export default function TwitterEmbed({ tweetId: rawTweetId }: TwitterEmbedProps)
 			containerRef.current.innerHTML = '';
 
 			if (window.twttr?.widgets?.createTweet) {
-				window.twttr.widgets.createTweet(
-					tweetId,
-					containerRef.current,
-					{
+				window.twttr.widgets
+					.createTweet(tweetId, containerRef.current, {
 						theme: isDark ? 'dark' : 'light',
 						dnt: true // Do Not Track for privacy
-					}
-				).catch((error) => {
-					console.error('Failed to load tweet:', error);
-					if (containerRef.current) {
-						containerRef.current.innerHTML = `
+					})
+					.catch((error) => {
+						console.error('Failed to load tweet:', error);
+						if (containerRef.current) {
+							containerRef.current.innerHTML = `
 							<div class="border border-gray-300 dark:border-gray-700 rounded-lg p-4 text-center">
 								<p class="text-gray-600 dark:text-gray-400">Failed to load tweet</p>
 								<a href="https://x.com/i/status/${tweetId}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
@@ -92,8 +90,8 @@ export default function TwitterEmbed({ tweetId: rawTweetId }: TwitterEmbedProps)
 								</a>
 							</div>
 						`;
-					}
-				});
+						}
+					});
 			}
 		};
 
