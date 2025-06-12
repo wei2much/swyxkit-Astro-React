@@ -1,20 +1,21 @@
 interface YouTubeEmbedProps {
-  videoId: string;
+	videoId: string;
 }
 
 function parseYouTubeUrl(url: string): string {
-  const rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/;
-  if (url.match(rx)) {
-    const match = url.match(rx);
-    return match ? match[1] : url.slice(-11);
-  }
-  return url.slice(-11);
+	const rx =
+		/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|&v(?:i)?=))([^#&?]*).*/;
+	if (url.match(rx)) {
+		const match = url.match(rx);
+		return match ? match[1] : url.slice(-11);
+	}
+	return url.slice(-11);
 }
 
 export default function YouTubeEmbed({ videoId: rawVideoId }: YouTubeEmbedProps) {
-  const videoId = rawVideoId.startsWith('https://') ? parseYouTubeUrl(rawVideoId) : rawVideoId;
+	const videoId = rawVideoId.startsWith('https://') ? parseYouTubeUrl(rawVideoId) : rawVideoId;
 
-  const srcdoc = `
+	const srcdoc = `
     <style>
       body, .youtubeembed {
         width: 100%;
@@ -42,19 +43,19 @@ export default function YouTubeEmbed({ videoId: rawVideoId }: YouTubeEmbedProps)
     </a>
   `;
 
-  return (
-    <div className="my-6">
-      <iframe
-        className="w-full object-contain"
-        srcDoc={srcdoc}
-        title={`YouTube video ${videoId}`}
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        frameBorder="0"
-        width="600"
-        height="400"
-        allowFullScreen
-        aria-hidden="true"
-      />
-    </div>
-  );
+	return (
+		<div className="my-6">
+			<iframe
+				className="w-full object-contain"
+				srcDoc={srcdoc}
+				title={`YouTube video ${videoId}`}
+				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				frameBorder="0"
+				width="600"
+				height="400"
+				allowFullScreen
+				aria-hidden="true"
+			/>
+		</div>
+	);
 }

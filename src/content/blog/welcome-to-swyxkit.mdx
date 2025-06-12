@@ -9,7 +9,7 @@ featured: true
 ---
 
 import YouTubeEmbed from '../../components/YouTubeEmbed';
-import TwitterEmbed from '../../components/TwitterEmbed';
+import TwitterEmbedAstro from '../../components/TwitterEmbedAstro.astro';
 
 # Welcome to SwyxKit 2022!
 
@@ -18,7 +18,7 @@ This is a sample blog post to demonstrate the new **SwyxKit** built with Astro +
 ## Features
 
 - 🚀 **Astro v5** for lightning-fast static sites
-- ⚛️ **React v19** for interactive components  
+- ⚛️ **React v19** for interactive components
 - 🎨 **Tailwind v4** for utility-first styling
 - 📝 **MDX** for rich content authoring
 - 🔍 **Shiki** for beautiful syntax highlighting
@@ -30,19 +30,19 @@ Here's some beautiful syntax-highlighted code:
 
 ```typescript
 interface BlogPost {
-  title: string;
-  slug: string;
-  date: Date;
-  category: PostCategory;
-  tags: string[];
-  featured?: boolean;
+	title: string;
+	slug: string;
+	date: Date;
+	category: PostCategory;
+	tags: string[];
+	featured?: boolean;
 }
 
 export function createPost(data: BlogPost): BlogPost {
-  return {
-    ...data,
-    date: new Date(data.date),
-  };
+	return {
+		...data,
+		date: new Date(data.date)
+	};
 }
 ```
 
@@ -67,4 +67,4 @@ Here's an example YouTube video embed:
 
 And here's an example Twitter embed:
 
-<TwitterEmbed tweetId="1234567890123456789" />
+<TwitterEmbedAstro tweetId="1519495982723084290" />

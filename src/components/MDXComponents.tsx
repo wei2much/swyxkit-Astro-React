@@ -1,9 +1,9 @@
 import YouTubeEmbed from './YouTubeEmbed';
-import TwitterEmbed from './TwitterEmbed';
+import TwitterEmbedWrapper from './TwitterEmbedWrapper';
 
 export const components = {
-  YouTubeEmbed,
-  TwitterEmbed,
+	YouTubeEmbed,
+	TwitterEmbed: TwitterEmbedWrapper
 };
 
 export default components;
