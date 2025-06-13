@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import TableOfContents from '../components/TableOfContents';
 import PrismHighlight from '../components/PrismHighlight';
+import LocaleDate from '../components/LocaleDate';
 import { generateTocFromHeadings } from '../lib/toc';
 
 interface Props {
@@ -26,15 +27,7 @@ const tocItems = generateTocFromHeadings(headings);
         {title}
       </h1>
       <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-        <time datetime={date.toISOString()}>
-          {
-            date.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })
-          }
-        </time>
+        <LocaleDate client:load date={date.toISOString()} />
         <span class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded text-xs uppercase">
           {category}
         </span>

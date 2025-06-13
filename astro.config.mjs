@@ -13,7 +13,7 @@ export default defineConfig({
   base: '/swyxkit-Astro-React',
   integrations: [
     react({
-      experimentalReactChildren: true, // For React 19
+      experimentalReactChildren: true // For React 19
     }),
     mdx({
       syntaxHighlight: false,

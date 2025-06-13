@@ -107,7 +107,7 @@ function setupTestContent(contentDir) {
     const filePath = join(contentDir, post.filename);
     writeFileSync(filePath, post.content, 'utf-8');
   });
-  
+
   console.log('✅ Test content set up successfully');
 }
 

@@ -7,12 +7,13 @@ export const GET: APIRoute = async (context) => {
   // Combine site and base URL from Astro config
   const site = context.site?.toString() || 'https://wei2much.github.io';
   const base = import.meta.env.BASE_URL || '';
-  
+
   // Handle empty base path (when base is '' or '/')
-  const siteUrl = (!base || base === '/') 
-    ? site.replace(/\/$/, '') 
-    : `${site.replace(/\/$/, '')}${base.replace(/\/$/, '')}`;
-  
+  const siteUrl =
+    !base || base === '/'
+      ? site.replace(/\/$/, '')
+      : `${site.replace(/\/$/, '')}${base.replace(/\/$/, '')}`;
+
   const feed = new RSS({
     title: SITE_TITLE + ' RSS Feed',
     site_url: siteUrl,

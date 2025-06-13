@@ -14,20 +14,20 @@ export default defineConfig({
     baseURL: 'http://localhost:4321/swyxkit-Astro-React/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    video: 'retain-on-failure'
   },
 
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+      use: { ...devices['Desktop Chrome'] }
+    }
   ],
 
   webServer: {
     command: 'pnpm run build && pnpm run preview',
     url: 'http://localhost:4321/swyxkit-Astro-React',
     reuseExistingServer: !process.env.CI,
-    timeout: 180 * 1000,
-  },
+    timeout: 180 * 1000
+  }
 });

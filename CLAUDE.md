@@ -1,0 +1,1 @@
+- use --amend, I don't want a seperate commit due to formatting in commit hooks

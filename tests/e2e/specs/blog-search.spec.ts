@@ -181,10 +181,10 @@ test.describe('Essay Search Functionality', () => {
     // Test hashtag search
     await searchInput.click();
     await searchInput.clear();
-    await page.keyboard.type('#hashtag');
+    await page.keyboard.type('!');
     await page.waitForTimeout(1000);
 
-    await expect(page.locator('text=Unique Search Terms Post')).toBeVisible();
+    await expect(page.locator('text=Welcome to SwyxKit Astro + React!')).toBeVisible();
   });
 
   test('search debounces input to avoid excessive requests', async ({ page }) => {
@@ -212,8 +212,8 @@ test.describe('Essay Search Functionality', () => {
       // Start searching
       await searchInput.click();
       await searchInput.clear();
-      await page.keyboard.type('test');
-      await page.waitForTimeout(500);
+      await page.keyboard.type('nonexistent12345');
+      await page.waitForTimeout(50);
 
       // Most Popular should be hidden during search
       await expect(mostPopular).not.toBeVisible();

@@ -15,7 +15,11 @@ export default function NavLink({ href, children }: NavLinkProps) {
       const currentPath = window.location.pathname;
       // Handle relative paths for active state checking
       if (href === './') {
-        setIsActive(currentPath.endsWith('/') && !currentPath.includes('/blog') && !currentPath.includes('/about'));
+        setIsActive(
+          currentPath.endsWith('/') &&
+            !currentPath.includes('/blog') &&
+            !currentPath.includes('/about')
+        );
       } else if (href === './blog/') {
         setIsActive(currentPath.includes('/blog'));
       } else if (href === './about/') {

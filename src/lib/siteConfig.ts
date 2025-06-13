@@ -7,7 +7,7 @@ export const MY_TWITTER_HANDLE = 'swyx';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 export const POST_CATEGORIES = ['Essay', 'Note'] as const;
 
-// Repository configuration  
+// Repository configuration
 export const REPO_URL = 'https://github.com/wei2much/swyxkit-Astro-React';
 export const REPO_OWNER = 'wei2much';
 
@@ -18,16 +18,16 @@ export function getSiteUrl(): string {
   if (typeof import.meta !== 'undefined' && import.meta.env?.SITE) {
     const site = import.meta.env.SITE;
     const base = import.meta.env.BASE_URL || '';
-    
+
     // Handle empty base path (when base is '' or '/')
     if (!base || base === '/') {
       return site;
     }
-    
+
     // Combine site and base path, ensuring no double slashes
     return `${site.replace(/\/$/, '')}${base}`;
   }
-  
+
   // Fallback for build-time or when import.meta.env is not available
   return 'https://wei2much.github.io/swyxkit-Astro-React';
 }
