@@ -11,7 +11,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://127.0.0.1:4321/swyxkit-Astro-React',
+    baseURL: 'http://localhost:4321/swyxkit-Astro-React/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -26,7 +26,7 @@ export default defineConfig({
 
   webServer: {
     command: 'pnpm run build && pnpm run preview',
-    url: 'http://127.0.0.1:4321/swyxkit-Astro-React',
+    url: 'http://localhost:4321/swyxkit-Astro-React',
     reuseExistingServer: !process.env.CI,
     timeout: 180 * 1000,
   },
