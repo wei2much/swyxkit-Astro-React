@@ -18,7 +18,7 @@ export default function LatestPosts({ items }: LatestPostsProps) {
       <ul className="space-y-2 text-white">
         {items.map((item) => (
           <li key={item.slug}>
-            <a className="font-bold" href={`/blog/${item.slug}`}>
+            <a className="font-bold" href={`./blog/${item.slug}/`}>
               {item.title}
             </a>
             <span className="hidden text-xs text-black dark:text-gray-400 sm:inline">
@@ -29,7 +29,7 @@ export default function LatestPosts({ items }: LatestPostsProps) {
       </ul>
       <a
         className="mt-2 flex h-6 rounded-lg leading-7 text-gray-600 transition-all dark:text-gray-400 dark:hover:text-gray-200"
-        href="/blog"
+        href="./blog/"
       >
         Search and see all posts
         <svg

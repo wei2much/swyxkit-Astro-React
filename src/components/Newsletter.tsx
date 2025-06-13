@@ -110,7 +110,7 @@ export default function Newsletter() {
             </form>
 
             <p className="text-sm text-gray-800 dark:text-gray-200">
-              5,432 subscribers including my Mom – <a href="/#newsletter">123 issues</a>
+              5,432 subscribers including my Mom – <a href="./#newsletter">123 issues</a>
             </p>
           </>
         )}

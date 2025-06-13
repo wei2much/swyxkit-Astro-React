@@ -1,4 +1,4 @@
-import uFuzzy from '@leeoniya/ufuzzy';
+import Fuse from 'fuse.js';
 
 interface SearchablePost {
   slug: string;
@@ -17,24 +17,17 @@ export function setIsSearchExact(value = !isSearchExact) {
   isSearchExact = value;
 }
 
-let u = new uFuzzy({ intraMode: 1 });
-
 export function changeSearchMode() {
   isSearchExact = !isSearchExact;
-  if (isSearchExact) {
-    u = new uFuzzy({ intraMode: 0, interLft: 1, interRgt: 1 });
-  } else {
-    u = new uFuzzy({ intraMode: 1, interLft: 0, interRgt: 0 });
-  }
 }
 
 // Debounce function for search performance
 function debounce<T extends (...args: any[]) => any>(func: T, wait: number) {
-  let timeout: NodeJS.Timeout;
+  let timeout: number;
   return (...args: Parameters<T>): Promise<ReturnType<T>> => {
     return new Promise((resolve) => {
       const later = () => {
-        timeout = null!;
+        timeout = 0;
         resolve(func.apply(null, args));
       };
       const callNow = !timeout;
@@ -59,54 +52,69 @@ function _fuzzySearch(
   });
 
   if (search) {
-    // Create searchable text from each post
-    const haystack = filteredItems.map((v) =>
-      [
-        v.title,
-        v.subtitle || '',
-        v.tags.map((tag) => 'hashtag-' + tag).join(' '), // add #tag for tag search
-        v.content || '',
-        v.description
-      ].join(' ')
-    );
+    // Configure Fuse.js options
+    const fuseOptions = {
+      includeScore: true,
+      includeMatches: true,
+      threshold: isSearchExact ? 0.0 : 0.4, // 0.0 = exact match, 0.4 = fuzzy
+      ignoreLocation: true,
+      keys: [
+        { name: 'title', weight: 0.3 },
+        { name: 'subtitle', weight: 0.2 },
+        { name: 'description', weight: 0.2 },
+        { name: 'content', weight: 0.2 },
+        { name: 'tags', weight: 0.1 }
+      ]
+    };
 
-    const idxs = u.filter(haystack, search);
-    if (!idxs || idxs.length === 0) {
-      return [];
-    }
+    const fuse = new Fuse(filteredItems, fuseOptions);
+    const results = fuse.search(search);
 
-    const info = u.info(idxs, haystack, search);
-    const order = u.sort(info, haystack, search);
+    return results.map((result) => {
+      const item = result.item;
 
-    const mark = (part: string, matched: boolean) =>
-      matched ? `<b style="color:var(--brand-accent)">${part}</b>` : part;
+      // Generate highlighted results from matches
+      let highlightedResults = '';
+      if (result.matches && result.matches.length > 0) {
+        const match = result.matches[0];
+        if (match.value) {
+          const value = match.value;
+          const indices = match.indices || [];
 
-    const list = order.map((i) => {
-      const x = filteredItems[info.idx[order[i]]];
-      const hl = uFuzzy
-        .highlight(
-          haystack[info.idx[order[i]]]
-            // Sanitize HTML
-            .replaceAll('<', ' ')
-            .replaceAll('/>', '  ')
-            .replaceAll('>', ' '),
-          info.ranges[order[i]],
-          mark
-        )
-        // Extract context around match
-        .slice(
-          Math.max(info.ranges[order[i]][0] - 200, 0),
-          Math.min(info.ranges[order[i]][1] + 200, haystack[info.idx[order[i]]].length)
-        )
-        // Clean up word boundaries
-        .split(' ')
-        .slice(1, -1)
-        .join(' ');
+          if (indices.length > 0) {
+            let highlighted = '';
+            let lastIndex = 0;
 
-      return { ...x, highlightedResults: hl };
+            indices.forEach(([start, end]) => {
+              // Add text before match
+              highlighted += value.slice(lastIndex, start);
+              // Add highlighted match
+              highlighted += `<b style="color:var(--brand-accent)">${value.slice(start, end + 1)}</b>`;
+              lastIndex = end + 1;
+            });
+
+            // Add remaining text
+            highlighted += value.slice(lastIndex);
+
+            // Extract context around match (200 chars before/after)
+            const firstMatch = indices[0][0];
+            const contextStart = Math.max(0, firstMatch - 200);
+            const contextEnd = Math.min(value.length, indices[indices.length - 1][1] + 200);
+
+            highlightedResults = highlighted
+              .slice(contextStart, contextEnd)
+              .split(' ')
+              .slice(1, -1)
+              .join(' ');
+          }
+        }
+      }
+
+      return {
+        ...item,
+        highlightedResults: highlightedResults || item.description?.slice(0, 200) + '...'
+      };
     });
-
-    return list;
   } else {
     return filteredItems;
   }

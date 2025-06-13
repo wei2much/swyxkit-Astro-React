@@ -9,8 +9,12 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://wei2much.github.io',
+  base: '/swyxkit-Astro-React',
   integrations: [
-    react(),
+    react({
+      experimentalReactChildren: true // For React 19
+    }),
     mdx({
       syntaxHighlight: false,
       remarkPlugins: [remarkShortcodes],

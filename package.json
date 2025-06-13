@@ -12,18 +12,22 @@
     "lint:fix": "eslint . --ext .js,.ts,.tsx,.astro --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:setup": "node scripts/setup-test-content.js",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource/fira-mono": "^5.2.6",
-    "@leeoniya/ufuzzy": "^1.0.18",
     "@tailwindcss/vite": "^4.1.8",
     "@types/react": "^19.1.7",
     "@types/react-dom": "^19.1.6",
     "astro": "^5.9.2",
+    "fuse.js": "^7.1.0",
     "marked": "^15.0.12",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.30.0",
@@ -37,7 +41,9 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
     "@eslint/js": "^9.28.0",
+    "@playwright/test": "^1.53.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^24.0.0",
     "@types/sanitize-html": "^2.16.0",
@@ -52,5 +58,8 @@
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "shiki": "^3.6.0"
+  },
+  "engines": {
+    "node": ">=22.16.0"
   }
 }

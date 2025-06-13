@@ -7,7 +7,7 @@ export default function MostPopular() {
 
       <a
         className="w-full text-gray-900 hover:text-yellow-600 hover:no-underline dark:text-gray-100 dark:hover:text-yellow-100"
-        href="/blog/welcome-to-swyxkit"
+        href="./blog/welcome-to-swyxkit/"
       >
         <div className="w-full">
           <div className="flex flex-col justify-between md:flex-row">
@@ -23,7 +23,7 @@ export default function MostPopular() {
 
       <a
         className="w-full text-gray-900 hover:text-yellow-600 hover:no-underline dark:text-gray-100 dark:hover:text-yellow-100"
-        href="/blog/moving-to-astro"
+        href="./blog/moving-to-astro/"
       >
         <div className="w-full">
           <div className="flex flex-col justify-between md:flex-row">

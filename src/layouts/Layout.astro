@@ -14,7 +14,8 @@ const { title = SITE_TITLE, description } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <base href={`${import.meta.env.BASE_URL}/`} />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -23,7 +24,7 @@ const { title = SITE_TITLE, description } = Astro.props;
       rel="alternate"
       type="application/rss+xml"
       title={`RSS Feed for ${SITE_TITLE}`}
-      href="/rss.xml"
+      href="./rss.xml"
     />
     <script is:inline>
       // Prevent dark mode flash by checking localStorage before render
@@ -50,10 +51,11 @@ const { title = SITE_TITLE, description } = Astro.props;
       <hr class="border-1 mb-8 w-full border-gray-200 dark:border-gray-800" />
       <div class="grid w-full max-w-2xl grid-cols-1 gap-4 px-4 pb-16 sm:grid-cols-2 sm:px-8">
         <div class="flex flex-col space-y-4">
-          <a class="text-gray-500 transition hover:text-gray-300" href="/">Home</a>
-          <a class="text-gray-500 transition hover:text-gray-300" href="/about">About</a>
-          <a class="text-gray-500 transition hover:text-gray-300" href="/#newsletter">Newsletter</a>
-          <a class="text-gray-500 transition hover:text-gray-300" href="/rss.xml" rel="external">
+          <a class="text-gray-500 transition hover:text-gray-300" href="./">Home</a>
+          <a class="text-gray-500 transition hover:text-gray-300" href="./about/">About</a>
+          <a class="text-gray-500 transition hover:text-gray-300" href="./#newsletter">Newsletter</a
+          >
+          <a class="text-gray-500 transition hover:text-gray-300" href="./rss.xml" rel="external">
             RSS
           </a>
         </div>

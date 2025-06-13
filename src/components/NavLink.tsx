@@ -12,7 +12,21 @@ export default function NavLink({ href, children }: NavLinkProps) {
   useEffect(() => {
     // Check if current pathname matches the href
     if (typeof window !== 'undefined') {
-      setIsActive(window.location.pathname === href);
+      const currentPath = window.location.pathname;
+      // Handle relative paths for active state checking
+      if (href === './') {
+        setIsActive(
+          currentPath.endsWith('/') &&
+            !currentPath.includes('/blog') &&
+            !currentPath.includes('/about')
+        );
+      } else if (href === './blog/') {
+        setIsActive(currentPath.includes('/blog'));
+      } else if (href === './about/') {
+        setIsActive(currentPath.includes('/about'));
+      } else {
+        setIsActive(currentPath === href);
+      }
     }
   }, [href]);
 
