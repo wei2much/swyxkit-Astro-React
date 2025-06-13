@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { REPO_URL } from '../lib/siteConfig';
+import { REPO_URL } from '../../lib/siteConfig';
 import NavLink from './NavLink';
 import MobileMenu from './MobileMenu';
 

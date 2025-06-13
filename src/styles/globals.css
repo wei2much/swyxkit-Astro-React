@@ -260,7 +260,21 @@ article.prose h4::before {
   content: none;
 }
 
-.prose code {
+/* Remove border styling from code blocks with higher specificity */
+article.prose pre code,
+article.prose pre[class*='language-'] code,
+article.prose code[class*='language-'],
+.prose pre code,
+.prose pre[class*='language-'] code,
+.prose code[class*='language-'] {
+  border-width: 0;
+  padding: 0;
+  border-radius: 0;
+  border-color: transparent;
+}
+
+/* Only apply border styling to inline code, not code blocks */
+.prose :not(pre) > code {
   border-radius: 0.25rem;
   padding: 0.15rem 0.3rem;
   border-width: 2px;

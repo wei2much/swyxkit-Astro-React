@@ -1,8 +1,7 @@
 ---
 import Layout from './Layout.astro';
-import TableOfContents from '../components/TableOfContents';
-import PrismHighlight from '../components/PrismHighlight';
-import LocaleDate from '../components/LocaleDate';
+import TableOfContents from '../components/navigation/TableOfContents';
+import LocaleDate from '../components/content/LocaleDate';
 import { generateTocFromHeadings } from '../lib/toc';
 
 interface Props {
@@ -53,7 +52,4 @@ const tocItems = generateTocFromHeadings(headings);
 
   <!-- Table of Contents -->
   <TableOfContents client:load headings={tocItems} />
-
-  <!-- PrismJS Syntax Highlighting -->
-  <PrismHighlight client:load />
 </Layout>
