@@ -15,3 +15,6 @@ yarn.lock
 
 # Astro auto-generated files
 .astro/
+
+# Claude Code memory files
+CLAUDE.md
