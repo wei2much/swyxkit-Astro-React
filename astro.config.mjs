@@ -10,7 +10,10 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://wei2much.github.io',
-  base: '/swyxkit-Astro-React',
+  // All internal links are using relative paths e.g. ./blog/ so if you do set base
+  // all the links will still work as BASE_URL is being set in Layout.astro
+  base: 'swyxkit-Astro-React',
+  trailingSlash: 'always',
   integrations: [
     react({
       experimentalReactChildren: true // For React 19
