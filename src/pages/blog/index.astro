@@ -10,7 +10,7 @@ const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
 
 // Prepare data for React component
 const postsForSearch = sortedPosts.map((post) => ({
-  slug: post.slug,
+  slug: post.id,
   title: post.data.title,
   description: post.data.description,
   category: post.data.category,
