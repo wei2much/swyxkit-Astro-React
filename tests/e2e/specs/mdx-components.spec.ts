@@ -93,7 +93,7 @@ test.describe('MDX Components and Embeds', () => {
 
   test('code blocks render with syntax highlighting', async ({ page }) => {
     // Navigate to a post with code blocks
-    await page.goto('./blog/test-post-1');
+    await page.goto('./blog/test-post-1/');
 
     // Check for syntax-highlighted code blocks
     const codeBlock = page.locator('pre code, .highlight, .shiki, .prism');

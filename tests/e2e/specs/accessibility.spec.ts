@@ -65,7 +65,7 @@ test.describe('Accessibility Tests', () => {
   });
 
   test('search functionality should be accessible', async ({ page }) => {
-    await page.goto('./blog');
+    await page.goto('./blog/');
     await page.waitForLoadState('networkidle');
 
     const searchInput = page.locator('[placeholder*="search" i], #search-input');
@@ -123,7 +123,7 @@ test.describe('Accessibility Tests', () => {
   });
 
   test('category filters should be accessible', async ({ page }) => {
-    await page.goto('./blog');
+    await page.goto('./blog/');
 
     // Look for category filter inputs
     const categoryInputs = page.locator('input[type="checkbox"]');
@@ -157,7 +157,7 @@ test.describe('Accessibility Tests', () => {
   });
 
   test('headings should have proper hierarchy', async ({ page }) => {
-    await page.goto('./blog/test-post-2');
+    await page.goto('./blog/test-post-2/');
 
     // Get all headings in order
     const headings = page.locator('h1, h2, h3, h4, h5, h6');
@@ -297,7 +297,7 @@ test.describe('Accessibility Tests', () => {
 
   test('form elements should be properly labeled and accessible', async ({ page }) => {
     // Check newsletter form if it exists
-    await page.goto('./blog/test-featured-post');
+    await page.goto('./blog/test-featured-post/');
 
     const forms = page.locator('form');
     const formCount = await forms.count();

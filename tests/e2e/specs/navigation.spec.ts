@@ -22,7 +22,7 @@ test.describe('Navigation and Basic Pages', () => {
   });
 
   test('about page has expected content and structure', async ({ page }) => {
-    await page.goto('./about');
+    await page.goto('./about/');
 
     // Check page title
     await expect(page).toHaveTitle(/about/i);
