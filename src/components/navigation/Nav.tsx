@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { REPO_URL } from '../lib/siteConfig';
+import { REPO_URL } from '../../lib/siteConfig';
 import NavLink from './NavLink';
 import MobileMenu from './MobileMenu';
 
@@ -46,17 +46,19 @@ export default function Nav() {
         <li>
           <NavLink href="./about/">About</NavLink>
         </li>
-        <li>
-          <a
-            className="hidden rounded-lg p-1 text-gray-800 transition-all hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800 sm:px-3 sm:py-2 md:inline-block"
-            rel="external"
-            href="./rss.xml"
-          >
-            <span className="capsize">RSS</span>
-          </a>
-        </li>
       </ul>
       <div className="flex items-center space-x-4">
+        {/* RSS */}
+        <a
+          className="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800"
+          rel="external"
+          href="./rss.xml"
+          aria-label="RSS feed"
+        >
+          <svg aria-hidden="true" className="h-9 w-9 p-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248S0 22.546 0 20.752s1.456-3.248 3.252-3.248 3.251 1.454 3.251 3.248zM1.677 6.462v4.003c6.988 0 12.65 5.662 12.65 12.65h4.003c0-9.186-7.467-16.653-16.653-16.653zM1.677.683v4.002C12.18 4.685 20.597 13.101 20.597 23.605h4.003C24.6 11.297 13.984.683 1.677.683z" />
+          </svg>
+        </a>
         {/* GitHub */}
         <a
           className="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800"

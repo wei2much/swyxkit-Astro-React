@@ -26,7 +26,7 @@ export default defineConfig({
 
   webServer: {
     command: 'pnpm run build && pnpm run preview',
-    url: 'http://localhost:4321/swyxkit-Astro-React',
+    url: 'http://localhost:4321/swyxkit-Astro-React/',
     reuseExistingServer: !process.env.CI,
     timeout: 180 * 1000
   }

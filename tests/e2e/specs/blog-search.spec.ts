@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Essay Search Functionality', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('./blog');
+    await page.goto('./blog/');
   });
 
   test('search filters posts correctly', async ({ page }) => {

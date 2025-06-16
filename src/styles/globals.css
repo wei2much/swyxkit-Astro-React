@@ -260,7 +260,21 @@ article.prose h4::before {
   content: none;
 }
 
-.prose code {
+/* Remove border styling from code blocks with higher specificity */
+article.prose pre code,
+article.prose pre[class*='language-'] code,
+article.prose code[class*='language-'],
+.prose pre code,
+.prose pre[class*='language-'] code,
+.prose code[class*='language-'] {
+  border-width: 0;
+  padding: 0;
+  border-radius: 0;
+  border-color: transparent;
+}
+
+/* Only apply border styling to inline code, not code blocks */
+.prose :not(pre) > code {
   border-radius: 0.25rem;
   padding: 0.15rem 0.3rem;
   border-width: 2px;
@@ -306,7 +320,67 @@ article.prose pre,
 
 /* Table styling */
 .prose table {
-  overflow: hidden;
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 0.875em;
+  line-height: 1.7142857;
+}
+
+.prose thead {
+  border-bottom: 1px solid rgb(209 213 219);
+}
+
+.prose thead th {
+  color: rgb(17 24 39);
+  font-weight: 600;
+  vertical-align: bottom;
+  padding-right: 0.5714286em;
+  padding-bottom: 0.5714286em;
+  padding-left: 0.5714286em;
+}
+
+.prose tbody tr {
+  border-bottom: 1px solid rgb(229 231 235);
+}
+
+.prose tbody tr:last-child {
+  border-bottom-width: 0;
+}
+
+.prose tbody td {
+  vertical-align: baseline;
+  padding-top: 0.5714286em;
+  padding-right: 0.5714286em;
+  padding-bottom: 0.5714286em;
+  padding-left: 0.5714286em;
+}
+
+.prose tbody td:first-child {
+  padding-left: 0;
+}
+
+.prose tbody td:last-child {
+  padding-right: 0;
+}
+
+/* Dark mode table styling */
+.dark .prose table {
+  color: rgb(209 213 219);
+}
+
+.dark .prose thead {
+  border-bottom-color: rgb(55 65 81);
+}
+
+.dark .prose thead th {
+  color: rgb(243 244 246);
+}
+
+.dark .prose tbody tr {
+  border-bottom-color: rgb(55 65 81);
 }
 
 /* List styling - match original exactly */

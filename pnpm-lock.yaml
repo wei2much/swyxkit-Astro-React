@@ -38,12 +38,6 @@ importers:
       marked:
         specifier: ^15.0.12
         version: 15.0.12
-      prism-themes:
-        specifier: ^1.9.0
-        version: 1.9.0
-      prismjs:
-        specifier: ^1.30.0
-        version: 1.30.0
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -2553,9 +2547,6 @@ packages:
     resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
     hasBin: true
-
-  prism-themes@1.9.0:
-    resolution: {integrity: sha512-tX2AYsehKDw1EORwBps+WhBFKc2kxfoFpQAjxBndbZKr4fRmMkv47XN0BghC/K1qwodB1otbe4oF23vUTFDokw==}
 
   prismjs@1.30.0:
     resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
@@ -6237,8 +6228,6 @@ snapshots:
       sass-formatter: 0.7.9
 
   prettier@3.5.3: {}
-
-  prism-themes@1.9.0: {}
 
   prismjs@1.30.0: {}
 

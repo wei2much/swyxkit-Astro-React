@@ -19,7 +19,7 @@ export default defineConfig({
       experimentalReactChildren: true // For React 19
     }),
     mdx({
-      syntaxHighlight: false,
+      syntaxHighlight: 'prism',
       remarkPlugins: [remarkShortcodes],
       rehypePlugins: [
         rehypeSlug,
@@ -37,7 +37,7 @@ export default defineConfig({
     plugins: [tailwind()]
   },
   markdown: {
-    syntaxHighlight: false,
+    syntaxHighlight: 'prism',
     remarkPlugins: [remarkShortcodes]
   }
 });

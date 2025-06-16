@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Essay Posts', () => {
   test('blog index shows all test posts', async ({ page }) => {
-    await page.goto('./blog');
+    await page.goto('./blog/');
 
     // Check page title
     await expect(page).toHaveTitle(/blog/i);
@@ -27,7 +27,7 @@ test.describe('Essay Posts', () => {
   });
 
   test('individual blog post renders with metadata', async ({ page }) => {
-    await page.goto('./blog');
+    await page.goto('./blog/');
 
     // Click on first test post
     await page.click('text=Test Post One');
@@ -58,7 +58,7 @@ test.describe('Essay Posts', () => {
   });
 
   test('table of contents generates correctly', async ({ page }) => {
-    await page.goto('./blog');
+    await page.goto('./blog/');
 
     // Navigate to post with multiple headings
     await page.click('text=Second Test Article');
@@ -85,7 +85,7 @@ test.describe('Essay Posts', () => {
   });
 
   test('most popular section shows featured posts', async ({ page }) => {
-    await page.goto('/blog');
+    await page.goto('/blog/');
 
     // Look for most popular section
     const mostPopular = page.locator('text=Most Popular').first();
@@ -97,7 +97,7 @@ test.describe('Essay Posts', () => {
   });
 
   test('reading time displays accurately', async ({ page }) => {
-    await page.goto('/blog');
+    await page.goto('/blog/');
 
     // Look for reading time indicators
     const readingTime = page.locator('text=/\\d+ min read/i').first();
@@ -114,7 +114,7 @@ test.describe('Essay Posts', () => {
   });
 
   test('post navigation works', async ({ page }) => {
-    await page.goto('./blog/test-post-1');
+    await page.goto('./blog/test-post-1/');
 
     // Look for navigation to other posts
     const prevNext = page.locator('text=Previous, text=Next, [href*="/blog/"]');
@@ -130,7 +130,7 @@ test.describe('Essay Posts', () => {
   });
 
   test('blog posts have proper meta tags', async ({ page }) => {
-    await page.goto('./blog/test-post-1');
+    await page.goto('./blog/test-post-1/');
 
     // Check meta description
     const metaDescription = page.locator('meta[name="description"]');
@@ -144,7 +144,7 @@ test.describe('Essay Posts', () => {
   });
 
   test('syntax highlighting works in code blocks', async ({ page }) => {
-    await page.goto('./blog/test-post-1');
+    await page.goto('./blog/test-post-1/');
 
     // Check for syntax-highlighted code
     const codeBlock = page.locator('pre code, .highlight, .shiki');

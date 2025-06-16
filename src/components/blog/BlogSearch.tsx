@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { fuzzySearch, changeSearchMode, isSearchExact } from '../lib/fuzzySearch';
-import { calculateReadingTime } from '../lib/readingTime';
-import IndexCard from './IndexCard';
+import { fuzzySearch, changeSearchMode, isSearchExact } from '../../lib/fuzzySearch';
+import { calculateReadingTime } from '../../lib/readingTime';
+import IndexCard from '../cards/IndexCard';
 import MostPopular from './MostPopular';
 
 interface BlogPost {

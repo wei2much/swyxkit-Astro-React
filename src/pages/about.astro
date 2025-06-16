@@ -1,7 +1,6 @@
 ---
 import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import PrismHighlight from '../components/PrismHighlight';
 
 const aboutPage = await getEntry('pages', 'about');
 const { Content } = await aboutPage.render();
@@ -13,7 +12,4 @@ const { Content } = await aboutPage.render();
   >
     <Content />
   </article>
-
-  <!-- PrismJS Syntax Highlighting -->
-  <PrismHighlight client:load />
 </Layout>
